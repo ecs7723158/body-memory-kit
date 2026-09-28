@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ecs7723158/body-memory-kit/blob/main/schema/bodylog.schema.json",
+  "title": "FIT v0.1 BodyLog",
+  "description": "Metric, non-medical long-term bodybuilding log. Missing required values may be null.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["date", "weight_kg", "waist_cm", "sleep_h", "stress_1to5", "train_done", "session_tag", "rpe_avg_1to10", "pain_flag", "notes", "red_flags"],
+  "properties": {
+    "date": {"type": ["string", "null"], "format": "date"},
+    "weight_kg": {"type": ["number", "null"]}, "waist_cm": {"type": ["number", "null"]},
+    "sleep_h": {"type": ["number", "null"]}, "stress_1to5": {"type": ["number", "null"], "minimum": 1, "maximum": 5},
+    "train_done": {"type": ["boolean", "null"]}, "session_tag": {"type": ["string", "null"], "enum": ["A", "B", "C", "other", null]},
+    "rpe_avg_1to10": {"type": ["number", "null"], "minimum": 1, "maximum": 10}, "pain_flag": {"type": ["boolean", "null"]},
+    "notes": {"type": ["string", "null"]}, "chest_cm": {"type": ["number", "null"]}, "arm_cm": {"type": ["number", "null"]},
+    "hip_cm": {"type": ["number", "null"]}, "thigh_cm": {"type": ["number", "null"]}, "bodyfat_est_pct": {"type": ["number", "null"]},
+    "steps": {"type": ["integer", "null"], "minimum": 0}, "protein_g_est": {"type": ["number", "null"]},
+    "calories_est": {"type": ["number", "null"]}, "mood_1to5": {"type": ["number", "null"], "minimum": 1, "maximum": 5},
+    "source": {"type": ["string", "null"], "enum": ["gemini_notebook", "gpt_export", "manual", null]},
+    "photo_ids": {"type": "array", "items": {"type": "string"}}, "injury_note": {"type": ["string", "null"]},
+    "red_flags": {"type": "object", "additionalProperties": false, "required": ["sharp_pain", "radiating_pain", "dizziness", "chest_pain"], "properties": {
+      "sharp_pain": {"type": "boolean"}, "radiating_pain": {"type": "boolean"}, "dizziness": {"type": "boolean"}, "chest_pain": {"type": "boolean"}
+    }}
+  }
+}

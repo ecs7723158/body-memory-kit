@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "body-memory-kit"
+version = "0.1.0"
+description = "Offline, non-medical bodybuilding long-term memory with FIT v0.1 BodyLog support"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Oscar Kate", email = "ecs7723158@gmail.com" }]
+dependencies = []
+optional-dependencies = { dev = ["pytest>=8.0"] }
+
+[project.scripts]
+body-memory = "body_memory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
