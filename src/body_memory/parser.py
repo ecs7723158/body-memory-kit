@@ -85,6 +85,14 @@ def import_markdown(path: str | Path) -> list[BodyLog]:
                 records.append(current)
             current, notes = {"date": date_line.group(1), "notes": date_line.group(2).strip()}, []
             continue
+        bullet_date = re.match(r"^-?\s*(\d{4}-\d{2}-\d{2})\s*$", line)
+        if bullet_date:
+            if current:
+                if notes:
+                    current["notes"] = " ".join(notes)
+                records.append(current)
+            current, notes = {"date": bullet_date.group(1)}, []
+            continue
         pair = _parse_pairs([line])
         if pair:
             # A second date starts a new bullet-log record.

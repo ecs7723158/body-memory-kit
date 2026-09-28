@@ -31,7 +31,7 @@ def test_store_search_and_null_safe_summary(tmp_path: Path):
 
 def test_bullet_import(tmp_path: Path):
     source = tmp_path / "export.md"
-    source.write_text("# 2099-02-02\n- weight: 81 kg\n- sleep: 7.5 h\n- training: yes\n- notes: fictional test\n", encoding="utf-8")
+    source.write_text("- 2099-02-02\n- weight: 81 kg\n- sleep: 7.5 h\n- training: yes\n- notes: fictional test\n", encoding="utf-8")
     log = import_markdown(source)[0]
     assert log.weight_kg == 81
     assert log.sleep_h == 7.5
