@@ -1,5 +1,15 @@
 # body-memory-kit
 
+## Demo (30s)
+
+Non-medical note: this is descriptive BodyLog tooling only; it does not diagnose or prescribe.
+
+```bash
+~/Projects/body-memory-kit/.venv/bin/body-memory --help
+~/Projects/body-memory-kit/.venv/bin/body-memory --root ~/Projects/body-memory-kit/body-memory search bodybuilding
+~/Projects/body-memory-kit/.venv/bin/body-memory --root ~/Projects/body-memory-kit/body-memory weekly-summary --days 7
+```
+
 Offline Python package and CLI for long-term bodybuilding memory using the FIT v0.1 `BodyLog` shape. It stores metric observations locally as JSONL and performs only descriptive 7/14-day summaries. It does not diagnose, prescribe, or replace a clinician.
 
 ## Non-medical disclaimer
